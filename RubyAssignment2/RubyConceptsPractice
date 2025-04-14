@@ -1,0 +1,126 @@
+METHOD
+
+def say_hello(name)
+  puts "Name is #{name}"
+end
+
+say_hello("Kunal")
+
+METHOD WITH ARGUMENTS
+
+def multiplication(a, b)
+  a * b
+end
+
+multiplication(5, 6)
+
+METHOD WITH DEFAULT ARGUMENTS
+
+def addition(num1, num2 = 5)
+  num1 + num2
+end
+
+addition(5)
+addition(5, 10)
+
+METHOD WITH KEYWORD ARGUMENTS
+
+def addition(value1:, value2:)
+  value1 + value2
+end
+
+addition(value1: 5, value2: 10)
+
+METHOD WITH VARIABLE ARGUMENTS
+
+def sum(*args)
+  puts args
+end
+
+sum(1, 3, 5)
+
+def sum(*args)
+  puts args.length * (args.length + 1) / 2
+end
+
+sum(1, 2, 3, 4, 5)
+
+INJECT
+
+a = [1, 2, 3, 4, 5]
+a.inject(1) { |sum, num| sum += num }
+a.inject(2) { |sum, num| sum += num }
+
+WHILE LOOP
+
+n = 0
+while n < 10
+  puts n
+  n += 1
+end
+
+UNTIL LOOP
+
+bottle = 0
+until bottle == 10
+  bottle += 1
+end
+
+bottle
+
+TIMES LOOP
+
+10.times do |i|
+  puts "#{i}" if i.even?
+end
+
+SYMBOL TO PROC
+
+(0...10).select(&:even?)
+
+MAP
+
+sum = 0
+a = [1, 5, 32]
+a.map { |ele| sum += ele }
+sum
+a.map { |ele| sum += ele }.last
+
+YIELD
+
+def test
+  yield
+end
+
+test {puts "Kunal"}
+
+
+YIELD WITH NUMBERS
+
+def test
+  yield(0)
+  yield(1)
+  yield(2)
+  yield(3)
+end
+
+PROC WITH RETURN
+
+def test
+  t = Proc.new { return "testing" }
+  t.call
+  puts "after proc call"
+end
+
+test
+
+LAMBDA WITH RETURN
+
+def test
+  t = -> { return "testing" }
+  t.call
+  puts "after proc call"
+end
+
+test
+
